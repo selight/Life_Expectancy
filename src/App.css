@@ -13,8 +13,9 @@
   }
 }
 
+
 .App-header {
-  background-color: #282c34;
+  background-color: #283434;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +36,37 @@
   to {
     transform: rotate(360deg);
   }
+}
+#svgcontainer {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  padding: 5px 50px 10px 50px;
+  background-color: whitesmoke;
+}
+
+h1 {
+  font-weight: 800;
+  color: #5a7388;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin: 15px 0 10px 0;
+}
+
+svg {
+  background-color: whitesmoke;
+}
+
+.country {
+  stroke: #fff;
+  fill:#005DAA;
+}
+.state:hover {
+  fill: red;
+  cursor: pointer;
 }
