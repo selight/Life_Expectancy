@@ -8,7 +8,7 @@ function AxisBottom({ scale, transform }) {
 
     useEffect(() => {
         if (ref.current) {
-            select(ref.current).call(axisBottom(scale));
+            select(ref.current).call(axisBottom(scale).tickValues([]));
         }
     }, [scale]);
 
@@ -52,7 +52,7 @@ export function BarChart({ data }) {
         .range([0, width])
         .padding(0.5);
     const scaleY = scaleLinear()
-        .domain([30, Math.max(...data.map(({ value }) => value))])
+        .domain([Math.min(...data.map(({ value }) => value)), Math.max(...data.map(({ value }) => value))])
         .range([height, 0]);
 
     return (
@@ -61,7 +61,7 @@ export function BarChart({ data }) {
             height={height + margin.top + margin.bottom}
         >
             <g transform={`translate(${margin.left}, ${margin.top})`}>
-                <AxisBottom scale={scaleX} transform={`translate(0, ${height})`} />
+                <AxisBottom scale={scaleX} transform={`translate(0, ${height})`}  />
                 <AxisLeft scale={scaleY} />
                 <Bars data={data} height={height} scaleX={scaleX}
                       scaleY={scaleY}

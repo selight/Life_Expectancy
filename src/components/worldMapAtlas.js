@@ -32,14 +32,14 @@ const WorldMapAtlas = () => {
         setYear(e.target.value)
     }
 
+    const color = d3.scaleLinear()
+        .domain([40,50,60,65,70,75,80,85])
+        .range(['#d53e4f','#f46d43','#fdae61','#fee08b','#e6f598','#abdda4','#66c2a5','#3288bd']);
 //A function that returns the color gradient from red to green based on the life expectancy
     const handleColor = (lifeExpectancy) => {
         if (lifeExpectancy === undefined) {
             return "#ccc"
         }
-        const color = d3.scaleLinear()
-            .domain([40,50,60,65,70,75,80,85])
-            .range(['#d53e4f','#f46d43','#fdae61','#fee08b','#e6f598','#abdda4','#66c2a5','#3288bd']);
         return color(lifeExpectancy)
     }
 
@@ -48,7 +48,19 @@ const WorldMapAtlas = () => {
             <div className="slideContainer">
                 <input type="range" onChange={handleSliderChange} min="2000" max="2015" value={year} className="slider" id="myRange"/>
                 <span>{year}</span>
+                <div className="legend">
+                    {color.ticks().map((tick, i) => (
+                        <div key={i} className="legend__item">
+                            <div
+                                className="legend__color"
+                                style={{ backgroundColor: color(tick) }}
+                            />
+                            <div className="legend__label">{tick}</div>
+                        </div>
+                    ))}
+                </div>
             </div>
+
             <svg width={scale * 5} height={scale * 5} viewBox="0 0 800 450">
                     {worldMapData.data.map((d, i) => (
                         <g key={i}>

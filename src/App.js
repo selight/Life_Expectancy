@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
         <div id="">
-            <h1>Getting started with map visualization</h1>
+            <h1>The Dreadful Effect of Diseases on Life Expectancy</h1>
             <WorldMapAtlas />
             <ScatterPlot />
           <AverageLifeExpectancy/>

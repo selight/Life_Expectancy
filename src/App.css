@@ -70,3 +70,33 @@ svg {
   fill: red;
   cursor: pointer;
 }
+.legend {
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 300;
+  fill: #5a7388;
+  text-anchor: middle;
+  display: flex;
+}
+.legend-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+.legend__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend__item .legend__color {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+.legend__label {
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 300;
+  fill: #5a7388;
+  text-anchor: middle;
+}
