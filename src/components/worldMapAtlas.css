@@ -1,16 +1,14 @@
 .slideContainer {
-    margin-left: 5%;
-    display: grid;
-    grid-template-columns: auto auto;
+    margin: 2%;
     justify-content: start;
-    column-gap: 2%;
+
 }
 .slider:hover {
     opacity: 1;
 }
 .slider {
     -webkit-appearance: none;
-    width: 100%;
+    width: 50%;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;

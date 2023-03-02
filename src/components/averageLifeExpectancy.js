@@ -1,4 +1,4 @@
-import {BarChart} from "./BarChart";
+import {BarChart, DEVELOPED_COLOR, DEVELOPING_COLOR} from "./BarChart.js";
 import {useData} from "./DataCollection";
 import {useState} from "react";
 
@@ -44,7 +44,9 @@ export const AverageLifeExpectancy = () => {
                 return {disease: disease.disease, ratio: disease.ratio / value.length}
             }).sort((a, b) => b.ratio - a.ratio)
 
-           diseaseMortalityCorrelation.push({label: key, value: mortalitySum / value.length, life_expectancy: lifeExpectancySum / value.length, highestAffectingDiseases: sortedDisease.slice(0, 3)})
+           diseaseMortalityCorrelation.push({label: key, value: mortalitySum / value.length,
+               life_expectancy: lifeExpectancySum / value.length,
+               highestAffectingDiseases: sortedDisease.slice(0, 3),status:lifeExpectancySum/value.length > 65 ? "Developed":"Developing"})
         })
         }
     const sortedDiseaseMortalityCorrelation = diseaseMortalityCorrelation.sort((a, b) => b.value - a.value)
@@ -54,12 +56,22 @@ export const AverageLifeExpectancy = () => {
 
     return (
         <div>
-            <h1>Average Life Expectancy</h1>
+            <h1>Average Effects of diseases on mortality of different age groups</h1>
             <div>
             <select value={mortalityOption} onChange={handleMortalityChange}>{
                 mortality.map((x, y) =>
                     <option key={y} value={x}>{x}</option>)
             }</select>
+            </div>
+            <div className="legend" >
+                <div className="legend__item">
+                    <div className="legend__color" style={{backgroundColor: DEVELOPING_COLOR}}/>
+                    <div className="legend__label">Developing</div>
+                </div>
+                <div className="legend__item">
+                    <div className="legend__color" style={{backgroundColor: DEVELOPED_COLOR}}/>
+                    <div className="legend__label">Developed</div>
+                </div>
             </div>
             <BarChart data={sortedDiseaseMortalityCorrelation} />
 <div>
@@ -68,7 +80,7 @@ export const AverageLifeExpectancy = () => {
         <thead>
         <tr>
             <th>Country</th>
-            <th>Mortality</th>
+            <th>{mortalityOption.toUpperCase()} average ratio</th>
             <th>Life Expectancy</th>
             <th>Status</th>
             <th>Ratio of most Affecting Diseases</th>

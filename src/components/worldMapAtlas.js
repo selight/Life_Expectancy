@@ -46,19 +46,20 @@ const WorldMapAtlas = () => {
     return (
         <>
             <div className="slideContainer">
-                <input type="range" onChange={handleSliderChange} min="2000" max="2015" value={year} className="slider" id="myRange"/>
+               Year Slider: <input type="range" onChange={handleSliderChange} min="2000" max="2015" value={year} className="slider" id="myRange"/>
                 <span>{year}</span>
-                <div className="legend">
-                    {color.ticks().map((tick, i) => (
-                        <div key={i} className="legend__item">
-                            <div
-                                className="legend__color"
-                                style={{ backgroundColor: color(tick) }}
-                            />
-                            <div className="legend__label">{tick}</div>
-                        </div>
-                    ))}
-                </div>
+
+            </div>
+            Life Expectancy Legend: <div className="legend">
+                {color.ticks().map((tick, i) => (
+                    <div key={i} className="legend__item">
+                        <div
+                            className="legend__color"
+                            style={{ backgroundColor: color(tick) }}
+                        />
+                        <div className="legend__label">{tick}</div>
+                    </div>
+                ))}
             </div>
 
             <svg width={scale * 5} height={scale * 5} viewBox="0 0 800 450">

@@ -3,6 +3,8 @@ import {select} from "d3-selection";
 import {scaleBand, scaleLinear} from "d3-scale";
 import {axisBottom, axisLeft} from "d3-axis";
 
+export const DEVELOPING_COLOR = "#f46d43";
+export const DEVELOPED_COLOR = "#66c2a5";
 function AxisBottom({ scale, transform }) {
     const ref = useRef (null);
 
@@ -28,14 +30,14 @@ function AxisLeft({ scale }) {
 function Bars({ data, height, scaleX, scaleY }) {
     return (
         <>
-            {data.map(({ value, label }) => (
+            {data.map(({ value, label,status }) => (
                 <rect
                     key={`bar-${label}`}
                     x={scaleX(label)}
                     y={scaleY(value)}
                     width={scaleX.bandwidth()}
                     height={height - scaleY(value)}
-                    fill="teal"
+                    fill= {status === "Developing" ? DEVELOPING_COLOR : DEVELOPED_COLOR}
                 />
             ))}
         </>
@@ -63,6 +65,9 @@ export function BarChart({ data }) {
             <g transform={`translate(${margin.left}, ${margin.top})`}>
                 <AxisBottom scale={scaleX} transform={`translate(0, ${height})`}  />
                 <AxisLeft scale={scaleY} />
+                {/* Axis labels */}
+                <text className="axis-label" transform={`translate(${margin.left + width / 2}, 
+                        ${height - margin.bottom + 35})`}>Country</text>
                 <Bars data={data} height={height} scaleX={scaleX}
                       scaleY={scaleY}
                       onMouseEnter={(event) => {

@@ -1,7 +1,8 @@
 import {useData} from "./DataCollection";
 import {useState} from "react";
 import ScatterPlotChart from "./scatterPlotChart";
-
+const DEVELOPING_COLOR = "#f46d43";
+const DEVELOPED_COLOR = "#66c2a5";
 const review = [{
     "hepatitis_b": "There is a slight decrease in the life expectancy value in case of developed countries " +
         "whereas in case of Developed countries the life expectancy value is gradually " +
@@ -46,6 +47,16 @@ const ScatterPlot = () => {
                     diseases.map((x, y) =>
                         <option key={y} value={x}>{x}</option>)
                 }</select>
+                <div className="legend" >
+                    <div className="legend__item">
+                        <div className="legend__color" style={{backgroundColor: DEVELOPING_COLOR}}/>
+                        <div className="legend__label">Developing</div>
+                    </div>
+                    <div className="legend__item">
+                        <div className="legend__color" style={{backgroundColor: DEVELOPED_COLOR}}/>
+                        <div className="legend__label">Developed</div>
+                    </div>
+                </div>
                 <ScatterPlotChart
                     developingData={developingPlotData}
                     developedData={developedPlotData}
@@ -54,7 +65,7 @@ const ScatterPlot = () => {
                     height={scale * 5}
                     radius={5}
                 />
-                <div>
+                <div className="textbox">
                     <h3>Conclusion</h3>
                     <p>{review[0][chosenOption]}</p>
                 </div>
