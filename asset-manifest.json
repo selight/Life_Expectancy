@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Life_Expectancy/static/css/main.cbfd4a14.css",
-    "main.js": "/Life_Expectancy/static/js/main.86952bfe.js",
-    "static/js/787.fdf7e2b0.chunk.js": "/Life_Expectancy/static/js/787.fdf7e2b0.chunk.js",
-    "index.html": "/Life_Expectancy/index.html",
-    "main.cbfd4a14.css.map": "/Life_Expectancy/static/css/main.cbfd4a14.css.map",
-    "main.86952bfe.js.map": "/Life_Expectancy/static/js/main.86952bfe.js.map",
-    "787.fdf7e2b0.chunk.js.map": "/Life_Expectancy/static/js/787.fdf7e2b0.chunk.js.map"
+    "main.css": "/Life_Expectancy)/static/css/main.71ca5c96.css",
+    "main.js": "/Life_Expectancy)/static/js/main.32236087.js",
+    "static/js/787.fdf7e2b0.chunk.js": "/Life_Expectancy)/static/js/787.fdf7e2b0.chunk.js",
+    "index.html": "/Life_Expectancy)/index.html",
+    "main.71ca5c96.css.map": "/Life_Expectancy)/static/css/main.71ca5c96.css.map",
+    "main.32236087.js.map": "/Life_Expectancy)/static/js/main.32236087.js.map",
+    "787.fdf7e2b0.chunk.js.map": "/Life_Expectancy)/static/js/787.fdf7e2b0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cbfd4a14.css",
-    "static/js/main.86952bfe.js"
+    "static/css/main.71ca5c96.css",
+    "static/js/main.32236087.js"
   ]
 }
